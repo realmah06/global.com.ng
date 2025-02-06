@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>M A Mujaheed Global Enterprises</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<style>
+   *{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", serif;
+  }
+  body{
+    
+  }
+  .head{
+   background-color: #8E0505;
+   color: #fff;
+   padding: 7px 10px;
+   display: flex;
+   justify-content: space-between;
+  }
+  
+  .header{
+    background-color: #fff;
+    padding: 7px;
+    display: flex;
+    border-bottom: 1px solid #ddd;
+  }
+  .header ul{
+    padding: 7px;
+  }
+  .header ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 12px;
+    padding: 5px
+  }
+  .header ul li a{
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 17px;
+  }
+  .header p{
+    float: right;
+    display: none;
+  }
+  .header p span{
+    font-size: 30px;
+  }
+  .summaries{
+    background-image: url(images.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 30px;
+    height: 230px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .summaries .box{
+     width: 400px;
+     padding: 10px
+  }
+  .summaries .box span{
+    font-size: 50px;
+    color: red;
+  }
+  .summaries .box p{
+    font-size: 22px;
+    font-weight: 600;
+  }
+  .summaries .box h3{
+    font-family: cursive;
+    font-weight: bold;
+    color: #178CC9;
+  }
+  .tabs{
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  .tabs .tab{
+    width: 400px;
+    text-align: center;
+    padding: 20px;
+  }
+  .tab span{
+    font-size: 40px;
+  }
+  .tab p{
+    margin: 5px;
+    font-size: 20px;
+  }
+  .active{
+    color: green;
+  }
+  .contents{
+    padding: 7px;
+    border: 1px solid #ddd;
+  }
+  .content h2{
+    font-family: cursive;
+    padding: 7px;
+    margin: 5px;
+  }
+  @media screen and (max-width: 1000px){
+    ul{
+      display: none;
+      width: 100%;
+      margin-top: 20px;
+    }
+    .header ul li{
+      display: block;
+      border-bottom: 1px solid #ddd;
+      width: 92%;
+    }
+    .header ul li a{
+      width: 100%;
+    }
+      
+    .header p{
+      display: block;
+    }
+  }
+</style>
+<body>
+<div class="head">
+  <p>Fullname: <b>Mahadi Abubakar Mujahid</b></p>
+  <p>Role: <b>Super Admin</b></p>
+</div>
+<div class="header">
+  <p class="show" id="show">
+    <span class="material-symbols-outlined">menu</span>
+  </p>
+  <ul id="lists">
+    <li><a href="dashboard.html">Home</a></li>
+    <li><a href="balances.html">General Balances</a></li>
+    <li><a href="Investment.html">Investment Analysis</a></li>
+    <li><a href="account.html">Account Management</a></li>
+    <li><a href="supply.html">Supply Management</a></li>
+    <li><a href="delivery.html">Delivery Management</a></li>
+    <li><a href="report.html">Report</a></li>
+    <li><a href="index.html">Logout</a></li>
+  </ul>
+</div>
+<br /><br />
+<div class="summaries">
+  <div class="box">
+    <span class="material-symbols-outlined">modeling</span>
+    <p>0</p>
+    <h3>COMPANIES</h3>
+  </div>
+  <div class="box">
+    <span class="material-symbols-outlined">cyclone</span>
+    <p>0</p>
+    <h3>SUPPLIER</h3>
+  </div>
+  <div class="box">
+    <span class="material-symbols-outlined">visibility</span>
+<p>0</p>
+<h3>HOUSE SUPPLIER</h3>
+</div>
+<div class="box">
+  <span class="material-symbols-outlined">groups</span>
+<p>0</p>
+<h3>CUSTOMERS</h3>
+</div>
+</div>
+<br /><br />
+<div class="tabs">
+  <div class="tab active" id="goods">
+    <span class="material-symbols-outlined">shopping_cart</span>
+    <p>Goods Performance</p>
+  </div>
+  <div class="tab" id="financial">
+    <span class="material-symbols-outlined">payments</span>
+    <p>Financial Performance</p>
+  </div>
+  <div class="tab" id="refresh">
+    <span class="material-symbols-outlined">sync</span>
+    <p>Refresh</p>
+  </div>
+</div>
+<hr />
+<div class="contents">
+  <div class="content" id="goods-content">
+    <h2>Goods Performance between <span>01/01/2025</span> to <span id="current-date"></span></h2>
+  </div>
+  <div class="content" id="financial-content" style="display: none;">
+    <h2>Financial Performance between 01/01/2025</h2>
+  </div>
+</div>
+</body>
+<script>
+  var show = document.getElementById("show");
+  var header = document.getElementById("lists");
+  
+  show.onclick = function(){
+    header.style.display = "block";
+  }
+  show.ondblclick = function(){
+    header.style.display = "none";
+  }
+  
+  var goods = document.getElementById("goods");
+  var financial = document.getElementById("financial");
+  var goodsContent = document.getElementById("goods-content");
+  var financialContent = document.getElementById("financial-content");
+  var refresh = document.getElementById("refresh")
+  
+  goods.onclick = function(){
+    goodsContent.style.display = "block";
+    financialContent.style.display = "none";
+    goods.style.color = "green";
+    financial.style.color = "black";
+  }
+  financial.onclick = function(){
+    goodsContent.style.display = "none";
+    financialContent.style.display = "block";
+    goods.style.color = "black";
+    financial.style.color = "green";
+  }
+  
+  refresh.onclick = function() {
+    window.location.href='dashboard.html'
+  }
+  
+  function displayCurrentDate() {
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, '0');
+    const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+    const year = today.getFullYear();
+    
+    const formattedDate = `${day}/${month}/${year}`; // Format: 06/02/2025
+    document.getElementById("current-date").textContent = formattedDate;
+  }
+
+  displayCurrentDate();
+</script>
+  </html>
